@@ -1,8 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.eddumelendez.liquibase</groupId>
-	<artifactId>liquibase-demo</artifactId>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+   <groupId>net.eddumelendez.liquibase</groupId>
+      <artifactId>liquibase-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>liquibase-demo</name>
@@ -12,7 +11,15 @@
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>3.2.1</version>
+				<version>3.4.2</version>
+				<configuration>
+					<changeLogFile>db.changelog-1.0.0.xml</changeLogFile>
+          				<driver>com.mysql.jdbc.Driver</driver>
+          				<url>jdbc:mysql://localhost:3306/liquibase_demo</url>
+          				<username>root</username>
+          				<password>password</password>
+					<tag>1.0.0</tag>
+            			</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>mysql</groupId>
@@ -32,7 +39,15 @@
 					<plugin>
 						<groupId>org.liquibase</groupId>
 						<artifactId>liquibase-maven-plugin</artifactId>
-						<version>3.2.1</version>
+						<version>3.4.2</version>
+						<configuration>
+                                        		<changeLogFile>db.changelog-1.0.0.xml</changeLogFile>
+                                        		<driver>com.mysql.jdbc.Driver</driver>
+                                        		<url>jdbc:mysql://localhost:3306/liquibase_demo</url>
+                                        		<username>root</username>
+                                        		<password>password</password>
+                                        		<tag>1.0.0</tag>
+						</configuration>
 						<executions>
 							<execution>
 								<phase>install</phase>
@@ -52,7 +67,15 @@
 					<plugin>
 						<groupId>org.liquibase</groupId>
 						<artifactId>liquibase-maven-plugin</artifactId>
-						<version>3.2.1</version>
+						<version>3.4.2</version>
+						<configuration>
+                                                        <changeLogFile>db.changelog-1.0.0.xml</changeLogFile>
+                                                        <driver>com.mysql.jdbc.Driver</driver>
+                                                        <url>jdbc:mysql://localhost:3306/liquibase_demo</url>
+                                                        <username>root</username>
+                                                        <password>password</password>
+                                                        <tag>1.0.0</tag>
+						</configuration>
 						<executions>
 							<execution>
 								<phase>install</phase>
@@ -72,7 +95,10 @@
 					<plugin>
 						<groupId>org.liquibase</groupId>
 						<artifactId>liquibase-maven-plugin</artifactId>
-						<version>3.2.1</version>
+						<version>3.4.2</version>
+						<configuration>
+                                        		<propertyfile>liquibase.properties</propertyfile>
+                                		</configuration>
 						<executions>
 							<execution>
 								<phase>install</phase>
@@ -85,6 +111,29 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+                        <id>diff</id>
+                        <build>
+                                <plugins>
+                                        <plugin>
+                                                <groupId>org.liquibase</groupId>
+                                                <artifactId>liquibase-maven-plugin</artifactId>
+                                                <version>3.4.2</version>
+                                                <configuration>
+						<propertyFileWillOverride>true</propertyFileWillOverride>
+                                                <propertyFile>/home/liquibaseDemo/liquibase.properties</propertyFile>
+						</configuration>
+						<executions>
+                                                        <execution>
+                                                                <phase>install</phase>
+                                                                <goals>
+                                                                        <goal>diff</goal>
+                                                                </goals>
+                                                        </execution>
+                                                </executions>
+                                        </plugin>
+                                </plugins>
+                        </build>
+                </profile>
 	</profiles>
-
 </project>
