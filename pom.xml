@@ -37,12 +37,8 @@
 						<artifactId>liquibase-maven-plugin</artifactId>
 						<version>3.4.2</version>
 						<configuration>
-                                        		<changeLogFile>db.changelog-1.0.0.xml</changeLogFile>
-                                        		<driver>com.mysql.jdbc.Driver</driver>
-                                        		<url>jdbc:mysql://localhost:3306/liquibase_demo</url>
-                                        		<username>root</username>
-                                        		<password>password</password>
-                                        		<tag>1.0.0</tag>
+						 <propertyFileWillOverride>true</propertyFileWillOverride>
+                                                 <propertyFile>liquibase.properties</propertyFile>
 						</configuration>
 						<executions>
 							<execution>
@@ -65,12 +61,8 @@
 						<artifactId>liquibase-maven-plugin</artifactId>
 						<version>3.4.2</version>
 						<configuration>
-                                                        <changeLogFile>db.changelog-1.0.0.xml</changeLogFile>
-                                                        <driver>com.mysql.jdbc.Driver</driver>
-                                                        <url>jdbc:mysql://localhost:3306/liquibase_demo</url>
-                                                        <username>root</username>
-                                                        <password>password</password>
-                                                        <tag>1.0.0</tag>
+						  <propertyFileWillOverride>true</propertyFileWillOverride>
+                                                  <propertyFile>liquibase.properties</propertyFile>
 						</configuration>
 						<executions>
 							<execution>
@@ -93,8 +85,9 @@
 						<artifactId>liquibase-maven-plugin</artifactId>
 						<version>3.4.2</version>
 						<configuration>
-                                        		<propertyfile>liquibase.properties</propertyfile>
-                                		</configuration>
+                                		   <propertyFileWillOverride>true</propertyFileWillOverride>
+                                                   <propertyFile>liquibase.properties</propertyFile>
+						</configuration>
 						<executions>
 							<execution>
 								<phase>install</phase>
