@@ -46,6 +46,7 @@
 						<configuration>
 						 <propertyFileWillOverride>true</propertyFileWillOverride>
                                                  <propertyFile>liquibase.properties</propertyFile>
+						 <password>${settings.servers.demo_prd.password}</password>
 						</configuration>
 						<executions>
 							<execution>
