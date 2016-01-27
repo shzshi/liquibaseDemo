@@ -44,7 +44,7 @@
 						<artifactId>liquibase-maven-plugin</artifactId>
 						<version>3.4.2</version>
 						<configuration>
-						 <propertyFileWillOverride>true</propertyFileWillOverride>
+						 <propertyFileWillOverride>false</propertyFileWillOverride>
                                                  <propertyFile>liquibase.properties</propertyFile>
 						 <password>${settings.servers.demo_prd.password}</password>
 						</configuration>
